@@ -16,7 +16,7 @@ public class StompConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/stomp/chat")
-                .setAllowedOriginPatterns("http://*.*.*.*:8081", "http://*:8081") //안해도 무관
+                .setAllowedOriginPatterns("http://*.*.*.*:8080", "http://*:8080") //안해도 무관
                 .withSockJS();
     }
 
@@ -26,6 +26,6 @@ public class StompConfig implements WebSocketMessageBrokerConfigurer {
         registry.setApplicationDestinationPrefixes("/pub");
 
         //registry.enableSimpleBroker("/sub");
-        registry.enableStompBrokerRelay("/queue", "/topic", "/exchange", "/amq/queue");
+        registry.enableStompBrokerRelay("/queue", "/topic", "/exchange", "/amq/queue");     //rabbitmq
     }
 }

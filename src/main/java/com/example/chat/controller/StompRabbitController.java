@@ -1,6 +1,5 @@
 package com.example.chat.controller;
 
-import com.example.chat.dto.ChatDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
