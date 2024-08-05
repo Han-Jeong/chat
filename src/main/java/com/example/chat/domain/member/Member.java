@@ -11,10 +11,10 @@ import lombok.*;
 public class Member {
 
     @Id
-    @Column(name = "channel_id")
+    @Column(name = "member_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String username;
 }

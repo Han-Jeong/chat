@@ -1,5 +1,6 @@
 package com.example.chat.domain.channel;
 
+import com.example.chat.domain.member.Member;
 import jakarta.persistence.*;
 import lombok.*;
 
