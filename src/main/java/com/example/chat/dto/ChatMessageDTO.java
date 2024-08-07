@@ -3,7 +3,7 @@ package com.example.chat.dto;
 import lombok.Data;
 
 @Data
-public class ChatMessageDto {
+public class ChatMessageDTO {
     private String roomId;
     private String writer;
     private String message;

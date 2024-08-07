@@ -1,6 +1,6 @@
 # Service Post 설정
 server:
-  port: 9091
+  port: 8080
 
 # Log Level 설정
 logging:
@@ -14,9 +14,19 @@ spring:
     port: 5672
     username: guest
     password: guest
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/chat_practice
+    username: root
+    password: springproject
+
 
 # RabbitMQ queue, exchange, routing-key 정보
 rabbitmq:
   queue.name: sample.queue
   exchange.name: sample.exchange
   routing.key: sample.key
+
