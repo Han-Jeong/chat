@@ -1,6 +1,5 @@
 package com.example.chat.repository;
 
-import com.example.chat.dto.ChatRoomDTO;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
