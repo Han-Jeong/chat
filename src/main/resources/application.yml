@@ -2,6 +2,15 @@ spring:
   # Spring Boot RabbitMQ 설정
   rabbitmq:
     host: localhost
-    port: 15672
+    port: 5672
     username: hann
     password: 1233
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/chat_practice
+    username: root
+    password: springproject
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
