@@ -36,8 +36,8 @@ public class RabbitConfig {
      * @return DirectExchange
      */
     @Bean
-    DirectExchange directExchange() {
-        return new DirectExchange("hello.exchange");
+    public TopicExchange exchange() {
+        return new TopicExchange("chat.exchange");
     }
 
     /**
@@ -48,7 +48,7 @@ public class RabbitConfig {
      */
     @Bean
     Queue queue() {
-        return new Queue("hello.queue", false);
+        return new Queue("chat.queue", false);
     }
 
 
@@ -61,8 +61,8 @@ public class RabbitConfig {
      * @return Binding
      */
     @Bean
-    Binding binding(DirectExchange directExchange, Queue queue) {
-        return BindingBuilder.bind(queue).to(directExchange).with("hello.key");
+    Binding binding(TopicExchange topicExchange, Queue queue) {
+        return BindingBuilder.bind(queue).to(topicExchange).with("room.*");
     }
 
 
