@@ -1,32 +1,7 @@
-# Service Post 설정
-server:
-  port: 8080
-
-# Log Level 설정
-logging:
-  level:
-    root: info
-
-# RabbitMQ 연결 정보
 spring:
+  # Spring Boot RabbitMQ 설정
   rabbitmq:
     host: localhost
-    port: 5672
-    username: guest
-    password: guest
-  jpa:
-    hibernate:
-      ddl-auto: create
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/chat_practice
-    username: root
-    password: springproject
-
-
-# RabbitMQ queue, exchange, routing-key 정보
-rabbitmq:
-  queue.name: sample.queue
-  exchange.name: sample.exchange
-  routing.key: sample.key
-
+    port: 15672
+    username: hann
+    password: 1233
