@@ -76,7 +76,7 @@
         console.log('STOMP Connected');
 
         /* subscribe 설정에 따라 rabbit의 Exchange, Queue가 상당히 많이 바뀜 */
-        stomp.subscribe(``, function (content) {
+        stomp.subscribe(`/topic/room.${chatRoomId}`, function (content) {
 
             const payload = JSON.parse(content.body);
 

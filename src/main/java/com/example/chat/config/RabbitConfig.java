@@ -54,7 +54,7 @@ public class RabbitConfig {
 
     /**
      * 3. 큐와 DirectExchange를 바인딩합니다.
-     * "hello.key"라는 이름으로 바인딩을 구성하였습니다.
+     * "room"라는 이름으로 바인딩을 구성하였습니다.
      *
      * @param topicExchange
      * @param queue

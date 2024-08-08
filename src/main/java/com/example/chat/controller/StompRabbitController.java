@@ -27,9 +27,9 @@ public class StompRabbitController {
         chatDto.setRegDate(LocalDateTime.now());
 
         // exchange
-        template.convertAndSend(CHAT_EXCHANGE_NAME, "room." + chatRoomId, chatDto);
+//        template.convertAndSend(CHAT_EXCHANGE_NAME, "room." + chatRoomId, chatDto);
         // template.convertAndSend("room." + chatRoomId, chat); //queue
-        // template.convertAndSend("amq.topic", "room." + chatRoomId, chat); //topic
+         template.convertAndSend("amq.topic", "room." + chatRoomId, chatDto); //topic
     }
 
 
@@ -37,9 +37,9 @@ public class StompRabbitController {
     public void send(ChatDto chatDto, @DestinationVariable String chatRoomId) {
         chatDto.setRegDate(LocalDateTime.now());
 
-        template.convertAndSend(CHAT_EXCHANGE_NAME, "room." + chatRoomId, chatDto);
+//        template.convertAndSend(CHAT_EXCHANGE_NAME, "room." + chatRoomId, chatDto);
         //template.convertAndSend( "room." + chatRoomId, chat);
-        //template.convertAndSend("amq.topic", "room." + chatRoomId, chat);
+        template.convertAndSend("amq.topic", "room." + chatRoomId, chatDto);
     }
 
     // receiver()는 단순히 큐에 들어온 메세지를 소비만 한다. (현재는 디버그 용도)
