@@ -6,9 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
-@RequestMapping(value = "/member")
+@RequestMapping(value = "api/member")
 @RestController
-public class MemberController {
+public class MemberApiController {
     private final MemberService memberService;
 
     @PostMapping

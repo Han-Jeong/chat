@@ -39,12 +39,6 @@ public class ChatRoomController {
         return "chat/room";
     }
 
-    @PostMapping("/room")
-    public ResponseEntity<Long> createRoom(@RequestParam Long memberId,
-                                           @RequestParam String name) {
-        return ResponseEntity.ok(roomService.createRoom(memberId, name));
-    }
-
     private RoomDto convert(Room room) {
         return RoomDto.builder()
                 .id(room.getId())
