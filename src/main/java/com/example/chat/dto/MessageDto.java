@@ -15,6 +15,7 @@ import lombok.*;
 public class MessageDto {
     private String title;
     private String message;
+    private String senderNickname;
 
     @Builder
     public MessageDto(String title, String message) {
