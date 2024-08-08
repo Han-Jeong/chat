@@ -19,6 +19,7 @@ public class ChatDto {
     private Long memberId;
     private String message;
     private String region;
+    private String senderNickname;
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime regDate;

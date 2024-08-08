@@ -18,6 +18,15 @@
         <input type="text" name="nickname" class="form-control">
         <button class="btn btn-secondary">참여하기</button>
     </form>
+    <div class="mt-4">
+        <h2>Chat Rooms</h2>
+        <ul>
+            <li th:each="room : ${rooms}">
+                <p>ID: <span th:text="${room.id}"></span></p>
+                <p>Name: <span th:text="${room.name}"></span></p>
+            </li>
+        </ul>
+    </div>
 
 </div>
 </body>

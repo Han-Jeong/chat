@@ -1,6 +1,8 @@
 package com.example.chat.controller;
 
 import com.example.chat.dto.ChatDto;
+import com.example.chat.dto.MessageDto;
+import com.example.chat.service.MessageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -17,6 +19,7 @@ import java.time.LocalDateTime;
 public class StompRabbitController {
 
     private final RabbitTemplate template;
+    private final MessageService messageService;
 
     private final static String CHAT_EXCHANGE_NAME = "chat.exchange";
     private final static String CHAT_QUEUE_NAME = "chat.queue";
@@ -29,7 +32,8 @@ public class StompRabbitController {
         // exchange
 //        template.convertAndSend(CHAT_EXCHANGE_NAME, "room." + chatRoomId, chatDto);
         // template.convertAndSend("room." + chatRoomId, chat); //queue
-         template.convertAndSend("amq.topic", "room." + chatRoomId, chatDto); //topic
+        messageService.send(chatDto);
+        template.convertAndSend("amq.topic", "room." + chatRoomId, chatDto); //topic
     }
 
 
@@ -39,6 +43,7 @@ public class StompRabbitController {
 
 //        template.convertAndSend(CHAT_EXCHANGE_NAME, "room." + chatRoomId, chatDto);
         //template.convertAndSend( "room." + chatRoomId, chat);
+        messageService.send(chatDto);
         template.convertAndSend("amq.topic", "room." + chatRoomId, chatDto);
     }
 

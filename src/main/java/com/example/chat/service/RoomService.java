@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class RoomService {
@@ -18,10 +20,12 @@ public class RoomService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public Long createRoom(Long memberId) {
+    public Long createRoom(Long memberId, String name) {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new RuntimeException("not found"));
-        Room room = Room.builder().build();
+        Room room = Room.builder()
+                .name(name)
+                .build();
         roomRepository.save(room);
         roomJoinRepository.save(RoomJoin.builder()
                 .room(room)
@@ -49,5 +53,9 @@ public class RoomService {
                 .build();
 
         roomJoinRepository.save(roomJoin);
+    }
+
+    public List<Room> findAll() {
+        return roomRepository.findAll();
     }
 }

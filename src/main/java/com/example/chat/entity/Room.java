@@ -18,6 +18,8 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
     @OneToMany(mappedBy = "room")
     private List<RoomJoin> roomJoinList = new ArrayList<>();
 
