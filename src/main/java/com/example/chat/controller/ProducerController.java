@@ -2,7 +2,7 @@ package com.example.chat.controller;
 
 import com.example.chat.dto.MessageDto;
 import com.example.chat.dto.response.ApiResponse;
-import com.example.chat.service.ProducerService;
+import com.example.chat.service.stomp.ProducerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
